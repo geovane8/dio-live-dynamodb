@@ -1,3 +1,52 @@
+{
+  "RequestItems": {
+    "Music": [
+      {
+        "PutRequest": {
+          "Item": {
+            "Artist": {"S": "Iron Maiden"},
+            "SongTitle": {"S": "Wasting Love"},
+            "AlbumTitle": {"S": "Fear of the Dark Live"},
+            "SongYear": {"N": "1992"}
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "Artist": {"S": "Iron Maiden"},
+            "SongTitle": {"S": "Weekend Warrior"},
+            "AlbumTitle": {"S": "Fear of the Dark"},
+            "SongYear": {"N": "1992"}
+          }
+        }
+      },
+      {
+        "PutRequest": {
+          "Item": {
+            "Artist": {"S": "Iron Maiden"},
+            "SongTitle": {"S": "Fear of the Dark"},
+            "AlbumTitle": {"S": "Fear of the Dark Tour"},
+            "SongYear": {"N": "1992"}
+          }
+        }
+      }
+    ]
+  }
+}
+
+
+
+//Adição de um objeto "RequestItems" que encapsula as requisições para a tabela "Music".
+//Inclusão do tipo de dado correto para o campo "SongYear", que deve ser um número (N) em vez de uma string (S).
+//Remoção de uma chave extra no objeto de cada item ("Item" já é a chave).
+//Alteração das aspas duplas para aspas simples para os valores dos campos das chaves, de modo a seguir o padrão do DynamoDB*
+
+
+
+//uma outra solução seria: 
+//fazer usi deste código com aplicação de  BatchWriteItem 
+
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
