@@ -1,4 +1,4 @@
 {
-    ":artist":{"S":"Iron Maiden"},
-    ":title":{"S":"Weekend Warrior"}
+"PK": {"S": "ARTIST#Iron Maiden"},
+"SK": {"S": "SONG#Weekend Warrior"}
 }
