@@ -1,6 +1,6 @@
 {
-  "Artist": {"S": "Iron Maiden"},
-  "SongTitle": {"S": "Chains of Misery"},
-  "AlbumTitle": {"S": "Fear of the Dark"},
-  "SongYear": {"S": "1992"}
+"PK": {"S": "ARTIST#Iron Maiden"},
+"SK": {"S": "SONG#Chains of Misery"},
+"AlbumTitle": {"S": "Fear of the Dark"},
+"SongYear": {"N": "1992"}
 }
