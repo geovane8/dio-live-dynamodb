@@ -1,34 +1,24 @@
-{
-    "Music": [
-        {
-            "PutRequest": {
-                "Item": {
-                  "Artist": {"S": "Iron Maiden"},
-                  "SongTitle": {"S": "Wasting Love"},
-                  "AlbumTitle": {"S": "Fear of the Dark Live"},
-                  "SongYear": {"S": "1992"}
-                }
-            }
-        },
-        {
-            "PutRequest": {
-                "Item": {
-                  "Artist": {"S": "Iron Maiden"},
-                  "SongTitle": {"S": "Weekend Warrior"},
-                  "AlbumTitle": {"S": "Fear of the Dark"},
-                  "SongYear": {"S": "1992"}
-                }
-            }
-        },
-        {
-            "PutRequest": {
-                "Item": {
-                  "Artist": {"S": "Iron Maiden"},
-                  "SongTitle": {"S": "Fear of the Dark"},
-                  "AlbumTitle": {"S": "Fear of the Dark Tour"},
-                  "SongYear": {"S": "1992"}
-                }
-            }
-        }
-      ]
-}
+import boto3
+
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('minha-tabela')
+
+with table.batch_writer(overwrite_by_pkeys=['Artist', 'SongTitle']) as batch:
+    batch.put_item(Item={
+        "Artist": "Iron Maiden",
+        "SongTitle": "Wasting Love",
+        "AlbumTitle": "Fear of the Dark Live",
+        "SongYear": "1992"
+    })
+    batch.put_item(Item={
+        "Artist": "Iron Maiden",
+        "SongTitle": "Weekend Warrior",
+        "AlbumTitle": "Fear of the Dark",
+        "SongYear": "1992"
+    })
+    batch.put_item(Item={
+        "Artist": "Iron Maiden",
+        "SongTitle": "Fear of the Dark",
+        "AlbumTitle": "Fear of the Dark Tour",
+        "SongYear": "1992"
+    })
